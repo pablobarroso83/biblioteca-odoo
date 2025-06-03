@@ -13,12 +13,13 @@
         <field name="name">Préstamos</field>
         <field name="res_model">biblioteca.prestamo</field>
         <field name="view_mode">tree,form,calendar,graph</field>
-        <field name="context">{'default_fecha_prestamo': fields.Date.today()}</field>
+        <field name="context">{'default_fecha_prestamo': context_today()}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Registra un nuevo préstamo</p>
         </field>
     </record>
-       <record id="action_report_libros" model="ir.actions.act_window">
+    
+    <record id="action_report_libros" model="ir.actions.act_window">
         <field name="name">Reporte de Libros</field>
         <field name="res_model">biblioteca.libro</field>
         <field name="view_mode">tree,form</field>
@@ -33,5 +34,4 @@
     <menuitem id="menu_biblioteca_reportes" name="Reportes" parent="menu_biblioteca_root"/>
 
     <menuitem id="menu_biblioteca_reportes_libros" name="Reporte de Libros" parent="menu_biblioteca_reportes" action="action_report_libros"/>
-
 </odoo>
