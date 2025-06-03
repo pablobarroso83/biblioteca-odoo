@@ -85,28 +85,35 @@
         </field>
     </record>
 
-    <!-- Vista Kanban -->
+    <!-- Vista Kanban actualizada  -->
     <record id="view_libro_kanban" model="ir.ui.view">
         <field name="name">biblioteca.libro.kanban</field>
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
             <kanban default_group_by="estado">
+                <field name="imagen"/>
+                <field name="name"/>
+                <field name="autor"/>
+                <field name="estado"/>
+                
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
                             <div class="o_kanban_image">
-                                <t t-if="record.imagen.raw_value">
-                                    <img t-att-src="'data:image/png;base64,%s' % record.imagen.raw_value" class="img-fluid"/>
-                                </t>
-                                <t t-else="">
-                                    <img src="/biblioteca-odoo/static/src/img/libro_icon.png" class="img-fluid"/>
-                                </t>
+                                <img t-if="record.imagen.raw_value" 
+                                     t-att-src="'data:image/png;base64,' + record.imagen.raw_value" 
+                                     class="img-fluid" 
+                                     alt="Portada"/>
+                                <img t-else="" 
+                                     src="/web/static/img/placeholder.png" 
+                                     class="img-fluid" 
+                                     alt="Sin portada"/>
                             </div>
                             <div class="oe_kanban_details">
                                 <strong><field name="name"/></strong>
                                 <div><field name="autor"/></div>
                                 <div>
-                                    <span class="badge" t-attf-class="badge badge-{{{
+                                    <span t-attf-class="badge bg-{{{
                                         {'disponible': 'success',
                                          'prestado': 'warning',
                                          'perdido': 'danger',

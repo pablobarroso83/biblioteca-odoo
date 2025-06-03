@@ -10,7 +10,8 @@
                 <field name="fecha_prestamo"/>
                 <field name="fecha_devolucion_esperada"/>
                 <field name="estado"/>
-                <button name="action_marcar_devuelto" string="Marcar devuelto" type="object" class="oe_highlight" attrs="{'invisible': [('estado','!=','prestado')]}"/>
+                <button name="action_marcar_devuelto" string="Marcar devuelto" type="object" class="oe_highlight"
+                    invisible="estado != 'prestado'"/>
             </tree>
         </field>
     </record>
@@ -45,8 +46,10 @@
                         </page>
                     </notebook>
                     <footer>
-                        <button name="action_marcar_devuelto" string="Marcar devuelto" type="object" class="oe_highlight" attrs="{'invisible': [('estado','!=','prestado')]}"/>
-                        <button name="action_marcar_retrasado" string="Marcar retrasado" type="object" class="oe_warning" attrs="{'invisible': [('estado','!=','prestado')]}"/>
+                        <button name="action_marcar_devuelto" string="Marcar devuelto" type="object" class="oe_highlight"
+                            invisible="estado != 'prestado'"/>
+                        <button name="action_marcar_retrasado" string="Marcar retrasado" type="object" class="oe_warning"
+                            invisible="estado != 'prestado'"/>
                     </footer>
                 </sheet>
             </form>
