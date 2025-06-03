@@ -1,6 +1,6 @@
 
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_biblioteca_libro_user,biblioteca.libro.user,model_biblioteca_libro,base.group_user,1,1,1,0
-access_biblioteca_libro_manager,biblioteca.libro.manager,model_biblioteca_libro,base.group_system,1,1,1,1
-access_biblioteca_prestamo_user,biblioteca.prestamo.user,model_biblioteca_prestamo,base.group_user,1,1,1,0
-access_biblioteca_prestamo_manager,biblioteca.prestamo.manager,model_biblioteca_prestamo,base.group_system,1,1,1,1
+access_biblioteca_libro_user,biblioteca.libro.user,biblioteca-odoo.model_biblioteca_libro,base.group_user,1,1,1,0
+access_biblioteca_libro_manager,biblioteca.libro.manager,biblioteca-odoo.model_biblioteca_libro,base.group_system,1,1,1,1
+access_biblioteca_prestamo_user,biblioteca.prestamo.user,biblioteca-odoo.model_biblioteca_prestamo,base.group_user,1,1,1,0
+access_biblioteca_prestamo_manager,biblioteca.prestamo.manager,biblioteca-odoo.model_biblioteca_prestamo,base.group_system,1,1,1,1
