@@ -1,0 +1,12 @@
+<odoo>
+    <record id="action_report_libros" model="ir.actions.report">
+        <field name="name">Reporte de Libros</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">biblioteca.report_libro_template</field>
+        <field name="report_file">biblioteca.report_libro_template</field>
+        <field name="binding_model_id" ref="model_biblioteca_libro"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="report.paperformat_euro"/>
+    </record>
+</odoo>

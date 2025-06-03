@@ -1,0 +1,31 @@
+<odoo>
+    <menuitem id="menu_biblioteca_root" name="Biblioteca" sequence="10"/>
+
+    <menuitem id="menu_biblioteca_libros" name="Libros" parent="menu_biblioteca_root" action="action_libros"/>
+
+    <menuitem id="menu_biblioteca_prestamos" name="Préstamos" parent="menu_biblioteca_root" action="action_prestamos"/>
+
+    <menuitem id="menu_biblioteca_reportes" name="Reportes" parent="menu_biblioteca_root"/>
+
+    <menuitem id="menu_biblioteca_reportes_libros" name="Reporte de Libros" parent="menu_biblioteca_reportes" action="action_report_libros"/>
+
+    <!-- Acciones -->
+    <record id="action_libros" model="ir.actions.act_window">
+        <field name="name">Libros</field>
+        <field name="res_model">biblioteca.libro</field>
+        <field name="view_mode">tree,form,kanban,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Añade tu primer libro</p>
+        </field>
+    </record>
+
+    <record id="action_prestamos" model="ir.actions.act_window">
+        <field name="name">Préstamos</field>
+        <field name="res_model">biblioteca.prestamo</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="context">{'default_fecha_prestamo': fields.Date.today()}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Registra un nuevo préstamo</p>
+        </field>
+    </record>
+</odoo>

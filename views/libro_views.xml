@@ -1,0 +1,125 @@
+<odoo>
+    <record id="view_libro_tree" model="ir.ui.view">
+        <field name="name">biblioteca.libro.tree</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="autor"/>
+                <field name="isbn"/>
+                <field name="estado"/>
+                <field name="fecha_publicacion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_libro_form" model="ir.ui.view">
+        <field name="name">biblioteca.libro.form</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="autor"/>
+                            <field name="isbn"/>
+                            <field name="fecha_publicacion"/>
+                            <field name="paginas"/>
+                        </group>
+                        <group>
+                            <field name="editorial"/>
+                            <field name="estado"/>
+                            <field name="imagen" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Préstamos">
+                            <field name="prestamo_ids" context="{'default_libro_id': id}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="fecha_prestamo"/>
+                                    <field name="fecha_devolucion_esperada"/>
+                                    <field name="estado"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="partner_id"/>
+                                            <field name="fecha_prestamo"/>
+                                            <field name="dias_prestamo"/>
+                                            <field name="fecha_devolucion_esperada" readonly="1"/>
+                                            <field name="estado"/>
+                                            <field name="notas"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_libro_search" model="ir.ui.view">
+        <field name="name">biblioteca.libro.search</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Título"/>
+                <field name="autor"/>
+                <field name="isbn"/>
+                <filter string="Disponibles" name="disponibles" domain="[('estado','=','disponible')]"/>
+                <filter string="Prestados" name="prestados" domain="[('estado','=','prestado')]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Autor" name="group_by_autor" context="{'group_by':'autor'}"/>
+                    <filter string="Estado" name="group_by_estado" context="{'group_by':'estado'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista Kanban -->
+    <record id="view_libro_kanban" model="ir.ui.view">
+        <field name="name">biblioteca.libro.kanban</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <t t-if="record.imagen.raw_value">
+                                    <img t-att-src="'data:image/png;base64,%s' % record.imagen.raw_value" class="img-fluid"/>
+                                </t>
+                                <t t-else="">
+                                    <img src="/biblioteca-odoo/static/src/img/libro_icon.png" class="img-fluid"/>
+                                </t>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div><field name="autor"/></div>
+                                <div>
+                                    <span class="badge" t-attf-class="badge badge-{{{
+                                        {'disponible': 'success',
+                                         'prestado': 'warning',
+                                         'perdido': 'danger',
+                                         'reparacion': 'info'}[record.estado.raw_value] || 'secondary'
+                                    }}}">
+                                        <field name="estado"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

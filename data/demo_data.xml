@@ -1,0 +1,67 @@
+<odoo>
+    <record id="libro_1" model="biblioteca.libro">
+        <field name="name">El Principito</field>
+        <field name="autor">Antoine de Saint-Exupéry</field>
+        <field name="isbn">978-0156012195</field>
+        <field name="fecha_publicacion">1943-04-06</field>
+        <field name="paginas">96</field>
+        <field name="editorial">Reynal & Hitchcock</field>
+        <field name="estado">disponible</field>
+    </record>
+
+    <record id="libro_2" model="biblioteca.libro">
+        <field name="name">Cien años de soledad</field>
+        <field name="autor">Gabriel García Márquez</field>
+        <field name="isbn">978-0307474728</field>
+        <field name="fecha_publicacion">1967-05-30</field>
+        <field name="paginas">417</field>
+        <field name="editorial">Editorial Sudamericana</field>
+        <field name="estado">disponible</field>
+    </record>
+
+    <record id="libro_3" model="biblioteca.libro">
+        <field name="name">1984</field>
+        <field name="autor">George Orwell</field>
+        <field name="isbn">978-0451524935</field>
+        <field name="fecha_publicacion">1949-06-08</field>
+        <field name="paginas">328</field>
+        <field name="editorial">Secker & Warburg</field>
+        <field name="estado">disponible</field>
+    </record>
+
+    <record id="partner_1" model="res.partner">
+        <field name="name">Juan Pérez</field>
+        <field name="email">juan.perez@example.com</field>
+        <field name="phone">+34 600 111 222</field>
+    </record>
+
+    <record id="partner_2" model="res.partner">
+        <field name="name">María García</field>
+        <field name="email">maria.garcia@example.com</field>
+        <field name="phone">+34 600 333 444</field>
+    </record>
+
+    <record id="prestamo_1" model="biblioteca.prestamo">
+        <field name="libro_id" ref="libro_1"/>
+        <field name="partner_id" ref="partner_1"/>
+        <field name="fecha_prestamo" eval="(datetime.now() - timedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="dias_prestamo">15</field>
+        <field name="estado">prestado</field>
+    </record>
+
+    <record id="prestamo_2" model="biblioteca.prestamo">
+        <field name="libro_id" ref="libro_2"/>
+        <field name="partner_id" ref="partner_2"/>
+        <field name="fecha_prestamo" eval="(datetime.now() - timedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="dias_prestamo">15</field>
+        <field name="estado">retrasado</field>
+    </record>
+
+    <record id="prestamo_3" model="biblioteca.prestamo">
+        <field name="libro_id" ref="libro_3"/>
+        <field name="partner_id" ref="partner_1"/>
+        <field name="fecha_prestamo" eval="(datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="dias_prestamo">15</field>
+        <field name="estado">prestado</field>
+    </record>
+</odoo>

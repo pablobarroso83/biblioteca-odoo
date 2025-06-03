@@ -1,0 +1,44 @@
+<odoo>
+    <template id="report_libro_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Informe de Libros</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>ISBN</th>
+                                <th>Estado</th>
+                                <th>Páginas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="libro">
+                                <tr>
+                                    <td><t t-esc="libro.name"/></td>
+                                    <td><t t-esc="libro.autor"/></td>
+                                    <td><t t-esc="libro.isbn"/></td>
+                                    <td><t t-esc="libro.estado"/></td>
+                                    <td><t t-esc="libro.paginas"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report 
+        id="action_report_libros"
+        name="biblioteca.report_libro_template"
+        model="biblioteca.libro"
+        report_type="qweb-pdf"
+        string="Reporte de Libros"
+        file="biblioteca.report_libro_template"
+        attachment_use="False"
+        paperformat="a4"
+    />
+</odoo>
