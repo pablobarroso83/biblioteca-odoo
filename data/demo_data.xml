@@ -5,7 +5,7 @@
         <field name="isbn">978-0156012195</field>
         <field name="fecha_publicacion">1943-04-06</field>
         <field name="paginas">96</field>
-        <field name="editorial">Reynal & Hitchcock</field>
+        <field name="editorial">Reynal &amp; Hitchcock</field>
         <field name="estado">disponible</field>
     </record>
 
@@ -25,7 +25,7 @@
         <field name="isbn">978-0451524935</field>
         <field name="fecha_publicacion">1949-06-08</field>
         <field name="paginas">328</field>
-        <field name="editorial">Secker & Warburg</field>
+        <field name="editorial">Secker &amp; Warburg</field>
         <field name="estado">disponible</field>
     </record>
 
