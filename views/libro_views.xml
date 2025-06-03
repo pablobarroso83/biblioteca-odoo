@@ -85,7 +85,7 @@
         </field>
     </record>
 
-    <!-- Vista Kanban actualizada  -->
+    <!-- Vista Kanban  -->
     <record id="view_libro_kanban" model="ir.ui.view">
         <field name="name">biblioteca.libro.kanban</field>
         <field name="model">biblioteca.libro</field>
@@ -113,14 +113,15 @@
                                 <strong><field name="name"/></strong>
                                 <div><field name="autor"/></div>
                                 <div>
-                                    <span t-attf-class="badge bg-{{{
-                                        {'disponible': 'success',
-                                         'prestado': 'warning',
-                                         'perdido': 'danger',
-                                         'reparacion': 'info'}[record.estado.raw_value] || 'secondary'
-                                    }}}">
-                                        <field name="estado"/>
-                                    </span>
+                                  <span t-att-class="'badge bg-' + ({
+                                                        'disponible': 'success',
+                                                        'prestado': 'warning',
+                                                        'perdido': 'danger',
+                                                        'reparacion': 'info'
+                                                        }[record.estado.raw_value] or 'secondary')">
+                                   <field name="estado"/>
+                                </span>
+
                                 </div>
                             </div>
                         </div>
