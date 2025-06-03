@@ -5,7 +5,6 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">biblioteca.report_libro_template</field>
         <field name="report_file">biblioteca.report_libro_template</field>
-        <field name="binding_model_id" ref="biblioteca-odoo.model_biblioteca_libro"/>
         <field name="binding_type">report</field>
         <field name="paperformat_id" ref="report.paperformat_euro"/>
     </record>
