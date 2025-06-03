@@ -18,7 +18,12 @@
             <p class="o_view_nocontent_smiling_face">Registra un nuevo préstamo</p>
         </field>
     </record>
-    
+       <record id="action_report_libros" model="ir.actions.act_window">
+        <field name="name">Reporte de Libros</field>
+        <field name="res_model">biblioteca.libro</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem id="menu_biblioteca_root" name="Biblioteca" sequence="10"/>
 
     <menuitem id="menu_biblioteca_libros" name="Libros" parent="menu_biblioteca_root" action="action_libros"/>
