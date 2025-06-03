@@ -31,14 +31,4 @@
         </t>
     </template>
 
-    <report 
-        id="action_report_libros"
-        name="biblioteca.report_libro_template"
-        model="biblioteca.libro"
-        report_type="qweb-pdf"
-        string="Reporte de Libros"
-        file="biblioteca.report_libro_template"
-        attachment_use="False"
-        paperformat="a4"
-    />
 </odoo>
