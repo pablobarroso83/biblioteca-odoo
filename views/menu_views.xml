@@ -1,14 +1,4 @@
 <odoo>
-    <menuitem id="menu_biblioteca_root" name="Biblioteca" sequence="10"/>
-
-    <menuitem id="menu_biblioteca_libros" name="Libros" parent="menu_biblioteca_root" action="action_libros"/>
-
-    <menuitem id="menu_biblioteca_prestamos" name="Préstamos" parent="menu_biblioteca_root" action="action_prestamos"/>
-
-    <menuitem id="menu_biblioteca_reportes" name="Reportes" parent="menu_biblioteca_root"/>
-
-    <menuitem id="menu_biblioteca_reportes_libros" name="Reporte de Libros" parent="menu_biblioteca_reportes" action="action_report_libros"/>
-
     <!-- Acciones -->
     <record id="action_libros" model="ir.actions.act_window">
         <field name="name">Libros</field>
@@ -28,4 +18,15 @@
             <p class="o_view_nocontent_smiling_face">Registra un nuevo préstamo</p>
         </field>
     </record>
+    
+    <menuitem id="menu_biblioteca_root" name="Biblioteca" sequence="10"/>
+
+    <menuitem id="menu_biblioteca_libros" name="Libros" parent="menu_biblioteca_root" action="action_libros"/>
+
+    <menuitem id="menu_biblioteca_prestamos" name="Préstamos" parent="menu_biblioteca_root" action="action_prestamos"/>
+
+    <menuitem id="menu_biblioteca_reportes" name="Reportes" parent="menu_biblioteca_root"/>
+
+    <menuitem id="menu_biblioteca_reportes_libros" name="Reporte de Libros" parent="menu_biblioteca_reportes" action="action_report_libros"/>
+
 </odoo>
