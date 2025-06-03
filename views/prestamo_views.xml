@@ -65,7 +65,7 @@
                 <field name="partner_id" string="Usuario"/>
                 <filter string="Prestados" name="prestados" domain="[('estado','=','prestado')]"/>
                 <filter string="Retrasados" name="retrasados" domain="[('estado','=','retrasado')]"/>
-                <filter string="Este mes" name="este_mes" domain="[('fecha_prestamo','>=',(context_today().replace(day=1).strftime('%Y-%m-%d'))]"/>
+                <filter string="Este mes" name="este_mes" domain="[('fecha_prestamo','&gt;=', (context_today().replace(day=1).strftime('%Y-%m-%d')))]"/>
                 <group expand="0" string="Agrupar por">
                     <filter string="Libro" name="group_by_libro" context="{'group_by':'libro_id'}"/>
                     <filter string="Usuario" name="group_by_usuario" context="{'group_by':'partner_id'}"/>
