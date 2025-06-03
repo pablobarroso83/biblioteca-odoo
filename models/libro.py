@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 class Libro(models.Model):
     _name = 'biblioteca.libro'
     _description = 'Libro de la biblioteca'
-    _order = 'fecha_publicacion desc, nombre'
+    _order = 'fecha_publicacion desc, name'
     
     name = fields.Char(string='Título', required=True)
     isbn = fields.Char(string='ISBN', help='International Standard Book Number')
