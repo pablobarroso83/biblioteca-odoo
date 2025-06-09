@@ -93,7 +93,7 @@
     <field name="name">biblioteca.prestamo.graph</field>
     <field name="model">biblioteca.prestamo</field>
     <field name="arch" type="xml">
-        <graph type="bar" sample="0" string="Préstamos" domain="[('estado', 'in', ['prestado', 'retrasado'])]">
+        <graph type="bar" sample="0" string="Préstamos" domain="[('estado', 'in', ['Prestado', 'Retrasado'])]">
             <field name="libro_id" type="row"/>
             <field name="partner_id" type="row"/>
             <field name="estado" type="col"/>
