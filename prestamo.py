@@ -3,6 +3,7 @@ from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
 
 class Prestamo(models.Model):
+
     _name = 'biblioteca.prestamo'
     _description = 'Préstamo de libro'
     _order = 'fecha_prestamo desc'
@@ -39,7 +40,7 @@ class Prestamo(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('name', 'Nuevo') == 'Nuevo':
-                vals['name'] = self.env['ir.sequence'].next_by_code('biblioteca.prestamo') or 'Nuevo'
+                vals['name'] = self.env['ir.sequence'].next_by_code('biblioteca.prestamo') #revisar
             
             # Cambiar estado del libro a prestado
             libro = self.env['biblioteca.libro'].browse(vals.get('libro_id'))
