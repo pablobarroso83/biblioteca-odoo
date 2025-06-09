@@ -41,7 +41,7 @@ class Prestamo(models.Model):
         count =0
         for vals in vals_list:
             if vals.get('name', 'Nuevo') == 'Nuevo':
-                vals['name'] = 'Prestamo'+count#revisar
+                self.write({'name':'Prestamo'+count})#revisar
                 count+=1
             
             # Cambiar estado del libro a prestado
