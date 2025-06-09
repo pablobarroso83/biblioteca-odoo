@@ -38,9 +38,11 @@ class Prestamo(models.Model):
     
     @api.model_create_multi
     def create(self, vals_list):
+        count =0
         for vals in vals_list:
             if vals.get('name', 'Nuevo') == 'Nuevo':
-                vals['name'] = self.env['ir.sequence'].next_by_code('biblioteca.prestamo') #revisar
+                vals['name'] = 'Prestamo'+count#revisar
+                count+=1
             
             # Cambiar estado del libro a prestado
             libro = self.env['biblioteca.libro'].browse(vals.get('libro_id'))
